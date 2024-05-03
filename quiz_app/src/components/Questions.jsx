@@ -13,7 +13,7 @@ const Questions = ({question , onclick}) => {
             {
                 question.options.map((data , index) => {
 
-                    return <li onClick={()=> onclick()} className= "hover:bg-slate-400 rounded-md p-1 m-1"
+                    return <li onClick={()=> onclick(data.isCorrect)} className= "hover:bg-slate-400 rounded-md p-1 m-1"
                      key={index}><button >{data.text}</button></li>
                 })
             }

@@ -2,7 +2,10 @@ import React from "react";
 
 const Result = ({userAnswer , quizData , resetQuiz}) => {
 
+    console.log(userAnswer);
     const correctAnswer = userAnswer.filter((answer) => answer).length;
+   
+    console.log(correctAnswer);
 
     return (
 

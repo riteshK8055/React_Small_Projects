@@ -2,7 +2,7 @@ import React , { useState } from 'react';
 import Header from './components/Header';
 import Questions from './components/Questions';
 import { quizData } from './constants/quizData';
-// import { Result } from 'postcss';
+import Result from './components/Result';
 
 
 function App() {
@@ -10,10 +10,11 @@ function App() {
   const[currentQuestion , setCurrentQuestion] = useState(0);
   const[userAnswer , setUserAnswer] = useState([]);
 
-  const nextQuestion = () => {
+  const nextQuestion = (isCorrect) => {
 
 
     setCurrentQuestion(currentQuestion+1);
+    setUserAnswer([...userAnswer , isCorrect]);
 
   };
 
@@ -41,12 +42,18 @@ function App() {
             )
            }
 
-           {/* <Result
-            userAnswer = {userAnswer}
-            quizData = {quizData}
-            resetQuiz = {resetQuiz}
-           />
-          */}
+          {
+            currentQuestion === quizData.length && (
+
+              <Result
+              userAnswer = {userAnswer}
+              quizData = {quizData}
+              resetQuiz = {resetQuiz}
+             />
+
+            )
+          }
+         
 
 
     </div>
